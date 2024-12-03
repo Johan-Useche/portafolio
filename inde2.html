@@ -1,0 +1,82 @@
+
+body {
+    font-family: Arial, sans-serif;
+    transition: background-color 0.3s, color 0.3s;
+    background-color: #000000; /* Modo Día */
+    color: #ffffff;
+  }
+  
+  body.night-mode {
+
+    background-color: #ffffff; /* Modo Noche */
+    color: #fff;
+  }
+
+  
+  .switch-container {
+    left: 417px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    position: relative;
+    top: 160px;
+    z-index: 2;
+}
+  
+  
+  .toggle-switch {
+    display: none;
+  }
+  
+  .toggle-label {
+    position: relative;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    background: #17171700;
+  }
+  
+  .toggle-label .icon-sun,
+  .toggle-label .icon-moon {
+    font-size: 30px;
+    transition: opacity 0.3s;
+  }
+  
+  .toggle-label .icon-moon {
+    opacity: 0;
+  }
+  
+  .toggle-switch:checked + .toggle-label .icon-sun {
+    opacity: 0;
+  }
+  
+  .toggle-switch:checked + .toggle-label .icon-moon {
+    opacity: 1;
+  }
+  
+
+  <div class="switch-container">
+    <input type="checkbox" id="toggle" class="toggle-switch">
+    <label for="toggle" class="toggle-label">
+      <span class="icon-sun"><i class="fa-solid fa-sun"></i></span>
+      <span class="icon-moon"><i class="fa-solid fa-moon"></i></span>
+    </label>
+
+    <style>
+        .icon-sun, .icon-moon {
+          color: rgb(205, 205, 205);
+        }
+      </style>
+
+  </div>
+
+  <script>
+    const toggleSwitch = document.getElementById('toggle');
+const body = document.body;
+
+toggleSwitch.addEventListener('change', () => {
+body.classList.toggle('night-mode');
+});
+
+  </script>
